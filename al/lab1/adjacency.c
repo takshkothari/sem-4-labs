@@ -32,7 +32,7 @@ int main()
 				printf("%d ", (j+1));
 		}
 	}
-	printf("\nadjacency matrix is:\n");
+	printf("\n\nadjacency matrix is:\n");
 	for(i = 0; i < n; i++)
 	{
 		for(j = 0; j < n; j++)
