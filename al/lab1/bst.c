@@ -56,7 +56,6 @@ void postorder(struct node *p)
 
 int main()
 {
-	/* code */
 	int n, i, x;
 	struct node *root = NULL;
 	printf("enter number of elements ");
