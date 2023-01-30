@@ -22,6 +22,16 @@ int main()
 			}
 		}
 	}
+	printf("\nadjacency list:");
+	for(i = 0; i < n; i++)
+	{
+		printf("\nadjacents of vertice %d: ", (i+1));
+		for(j = 0; j < n; j++)
+		{
+			if(adj[i][j])
+				printf("%d ", (j+1));
+		}
+	}
 	printf("\nadjacency matrix is:\n");
 	for(i = 0; i < n; i++)
 	{
