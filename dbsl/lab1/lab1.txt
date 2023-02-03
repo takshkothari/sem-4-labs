@@ -10,6 +10,17 @@ insert into employee values(5, 'ishita', 'thane');
 
 3)
 select * from employee;
+ EMP_NO EMP_NAME             EMP_ADDRESS
+---------- -------------------- ----------------------------------------
+         1 taksh                mumbai
+
+         2 laksh                delhi
+
+         3 krrish               hyderabad
+
+         4 arnav                delhi
+
+         5 ishita               thane
 
 4)
 select * from employee where emp_address = 'MANIPAL';
