@@ -10,10 +10,10 @@ int main()
     printf("enter elements\n");
     for(i = 0; i < n; i++)
         scanf("%d", &a[i]);
-    for(i = n; i > 0; i--){
+    for(i = n - 1; i > 0; i--){
         for(j = 0; j < i; j++){
+            opc++;
             if(a[j] > a[j+1]){
-                opc++;
                 t = a[j];
                 a[j] = a[j+1];
                 a[j+1] = t;
