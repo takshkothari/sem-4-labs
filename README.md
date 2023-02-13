@@ -1,4 +1,5 @@
 # sem-4-labs
-AL - Algorithms Lab
-ESL - Embedded Systems Lab
-DBSL - Database Systems Lab
+
+AL - Algorithms Lab<br>
+ESL - Embedded Systems Lab<br>
+DBSL - Database Systems Lab<br>
