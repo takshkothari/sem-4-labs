@@ -25,8 +25,5 @@ STOP
 	B STOP
 N1 DCD 11
 N2 DCD 5
-
-	AREA mydata, DATA, READWRITE
-result DCD 0,0
-		
+	AREA mydata, DATA, READWRITE		
 	END
