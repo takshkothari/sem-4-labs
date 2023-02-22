@@ -1,8 +1,6 @@
 	AREA RESET, DATA, READONLY
 	EXPORT __Vectors
-		
 __Vectors
-	
 	DCD 0X10001000
 	DCD Reset_Handler
 	ALIGN
@@ -10,37 +8,33 @@ __Vectors
 	ENTRY
 	EXPORT Reset_Handler
 Reset_Handler
+	LDR R0,=NUM
 	LDR R6,=RESULT
-	MOV R2,#00
-	LDR R0,=VALUE1
-	LDR R1,[R0]
-up	CMP R1,#0xA
-	BCC store
-	SUB R1,#0xA
-	ADD R2,#01
-	B up
-store STRB R1,[R6],#1
-	MOV R1, R2
 	MOV R2,#0
-	CMP R1,#0xA
-	BCS up
-	STRB R1,[R6], #1
-	MOV R3,R6
-	LDR R2,=packed
-	LDR R6,=RESULT
-	SUB R4,R3,R6
-up1	LDRB R0,[R6],#1
-	LDRB R1,[R6],#1
-	LSL R1,#4
-	ORR R1,R0
-	STRB R1,[R2],#1
-	SUB R4,#2
-	CMP R4,#1
-	BGE up1
+	MOV R5,#0
+	LDR R4,[R0]
+	
+UP	CMP R4,#100
+	BLO L1
+	SUBS R4,#100
+	ADD R2, R2,#1
+	BNE UP
+	
+L1	CMP R4,#10
+	BLO L2
+	SUBS R4,#10
+	ADD R5, R5,#1
+	BNE L1
+	
+L2	LSL R5, R5,#4
+	ORR R8, R4, R5
+	LSL R9, R2, #8
+	ORR R9, R8, R9
+	STR R9, [R6]
+	
 STOP
 	B STOP
-VALUE1 DCD 0x0005
+NUM DCD 0x35
 	AREA mydata, DATA, READWRITE
 RESULT DCD 0,0,0,0,0,0,0,0,0,0
-packed DCD 0
 	END
