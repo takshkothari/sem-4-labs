@@ -21,9 +21,11 @@ select name,dept_name from student s where 2<=(select count(id) from takes t whe
 select dept_name, avg_sal from (select dept_name,avg(salary) avg_sal from instructor group by dept_name having avg(salary)>42000);
 
 18)
-
+create view all_courses as select building,room_number from section natural join course where dept_name='Physics' and semester='Fall' and year=2009;
 
 19)
-
+select * from all_courses;
 
 20)
+create view dept_tot_sal as select dept_name,sum(salary) tot_salary from instructor group by dept_name;
+select * from dept_tot_sal;
