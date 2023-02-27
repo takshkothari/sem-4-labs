@@ -5,13 +5,13 @@ int tower(int n, char source, char dest, char aux)
     static int c = 0;
     if (n == 1)
     {
-        printf("\nmove disk 1 from peg %c to peg %c", source, dest);
+        printf("\nmove disc 1 from peg %c to peg %c", source, dest);
         c++;
     }
     else
     {
         tower(n - 1, source, aux, dest);
-        printf("\nmove disk %d from peg %c to peg %c", n, source, dest);
+        printf("\nmove disc %d from peg %c to peg %c", n, source, dest);
         c++;
         tower(n - 1, aux, dest, source);
     }
