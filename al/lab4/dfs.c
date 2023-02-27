@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int g[100][100];
+int g[10][10];
 int V;
-int visited[100];
+int visited[10];
 void dfsv(int v)
 {
 	printf("Visiting %d\n", (v+1));
