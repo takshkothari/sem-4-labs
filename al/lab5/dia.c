@@ -10,37 +10,24 @@ typedef struct node{
 node* create(int x) {
     node *new = (node*) malloc(sizeof(node));
     new->val = x;
-    new->l = NULL;
-    new->r = NULL;
+    new->l = new->r = NULL;
     return new;
 }
 
-int max(int a, int b) {
-    return a > b ? a : b;
-}
-
-int height(node *root) {
-    if (root == NULL)
-        return 0;
-    return 1 + max(height(root->l), height(root->r));
-}
-
-int diameter(node *root, int *h) {
-    if (root == NULL)
+int dia(node *r, int *h) {
+    if (r == NULL)
         return 0; 
-    
     int lh = 0, rh = 0;
-    int ld = diameter(root->l, &lh);
-    int rd = diameter(root->r, &rh);
-
-    *h = max(lh, rh) + 1;
-    int temp = max(ld, rd);
-
-    return max(lh + rh + 1, temp);
+    int ld = dia(r->l, &lh);
+    int rd = dia(r->r, &rh);
+    *h = ((lh > rh)? lh : rh) + 1;
+    int t = (ld > rd)? ld : rd;
+    if((lh + rh + 1)>t)
+        return (lh + rh + 1);
+    else
+        return t;
 }
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    return 0;
+void main(){
+    ;
 }
