@@ -26,18 +26,15 @@ void insert(int *list, int x){
 graph create(int n){
     graph g;
     g.n = n;
-    int i, j, x, f;
+    int i, j, x;
     g.adjL = (int **)malloc(n * sizeof(int *));
     for(i = 0; i < n; i++){
         g.adjL[i] = (int *)malloc(n * sizeof(int));
         g.adjL[i][0] = -1;
-        f = 0;
         for(j = 0; j < n; j++){
-            if(i != j && f == 0){
+            if(i != j){
                 printf("edge from %d to %d? ", i, j);
                 scanf("%d", &x);
-                if(x == -1)
-                    f = 1;
                 if(x == 1)
                     insert(g.adjL[i], j);
             }
