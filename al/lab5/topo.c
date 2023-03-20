@@ -108,7 +108,7 @@ void main(){
         v[i] = 0;
 
     printf("dfs: \n");
-    for (i= 0; i < n ; i++)
+    for (i = 0; i < n ; i++)
         if (v[i] == 0)
             dfs(g, v, &s, i);
     while (s.top != -1) 
