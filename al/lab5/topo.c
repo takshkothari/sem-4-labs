@@ -26,17 +26,18 @@ void insert(int *list, int x){
 graph create(int n){
     graph g;
     g.n = n;
-    int i, x, j;
+    int i, j, x, f;
     g.adjL = (int **)malloc(n * sizeof(int *));
     for(i = 0; i < n; i++){
         g.adjL[i] = (int *)malloc(n * sizeof(int));
         g.adjL[i][0] = -1;
-    }
-    for(i = 0; i < n; i++){
+        f = 0;
         for(j = 0; j < n; j++){
-            if(i != j){
+            if(i != j && f == 0){
                 printf("edge from %d to %d? ", i, j);
                 scanf("%d", &x);
+                if(x == -1)
+                    f = 1;
                 if(x == 1)
                     insert(g.adjL[i], j);
             }
@@ -72,9 +73,9 @@ void srcRem(graph *g, int *rem, int *in){
     for(i = 0; i < g -> n; i++){
         j = 0;
         list = g->adjL[i];
-        if (!check(rem,*in,i)) {
+        if (!check(rem, *in, i)) {
             while (list[j] != -1) {
-                if (!check(rem,*in,list[j]))
+                if (!check(rem, *in, list[j]))
                     deg[list[j]]++;
                 j++;
             }    
@@ -93,8 +94,26 @@ void srcRem(graph *g, int *rem, int *in){
     printf("%d ", j);
 }
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    return 0;
+void main(){
+    int n, i, x;
+    printf("enter no. of nodes ");
+    scanf("%d",&n);
+    int * v = (int *) calloc(n,sizeof(int));
+    int * rem = (int *) calloc(n,sizeof(int));
+    int in = 0;
+    stack s;
+    s.top = -1;
+    graph g = create(n);
+    for(i=0;i<n;i++)
+        v[i] = 0;
+
+    printf("dfs: \n");
+    for (i= 0; i < n ; i++)
+        if (v[i] == 0)
+            dfs(g,v,&s,i);
+    while (s.top != -1) 
+        printf("%d ",(s.a[s.top--]));
+    printf("\nsource removal: \n");
+    for (i = 0; i < n; i++) 
+        srcRem(&g,rem,&in);
 }
