@@ -104,16 +104,16 @@ void main(){
     stack s;
     s.top = -1;
     graph g = create(n);
-    for(i=0;i<n;i++)
+    for(i = 0; i < n; i++)
         v[i] = 0;
 
     printf("dfs: \n");
     for (i= 0; i < n ; i++)
         if (v[i] == 0)
-            dfs(g,v,&s,i);
+            dfs(g, v, &s, i);
     while (s.top != -1) 
         printf("%d ",(s.a[s.top--]));
     printf("\nsource removal: \n");
     for (i = 0; i < n; i++) 
-        srcRem(&g,rem,&in);
+        srcRem(&g, rem, &in);
 }
