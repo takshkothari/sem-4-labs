@@ -11,9 +11,9 @@ int main(void)
 	while(1)
 	{
 		LPC_GPIO0->FIOPIN=c<<4;
-		for(i=0;i<100;i++);
+		for(i=0;i<10000;i++);
 		
-		if(c == 0x80)
+		if(c == 1<<12)
 			c=1;
 		else
 			c<<=1;
