@@ -5,17 +5,25 @@ unsigned long LED = 0x00000010;
 
 int main(void)
 {
+	SystemInit();
+	SystemCoreClockUpdate();
+	
 	LPC_PINCON->PINSEL0 &= 0xFF0000FF;
 	LPC_GPIO0->FIODIR |= 0X00000FF0;
+	LPC_PINCON->PINSEL4 &= 0xFCFFFFFF;
+	LPC_GPIO2->FIODIR &= 0XFFFFFFFE;
 	
-	while(1)
-	{
-		LPC_GPIO0->FIOPIN=c<<4;
-		for(i=0;i<10000;i++);
-		
-		if(c == 1<<12)
+	while(1){
+		if(!(LPC_GPIO2->FIOPIN&1<<12)){
+			for(i=0;i<8;i++){
+				LPC_GPIO0->FIOPIN = c<<4;
+				for(j=0;j<10000;j++);
+				c=c<<1;
+			}
 			c=1;
+		}
 		else
-			c<<=1;
+			LPC_GPIO0->FIOPIN &= 0xFFFFF00F;
 	}
+	return 0;
 }
