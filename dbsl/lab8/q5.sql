@@ -1,4 +1,4 @@
-alter table StudentTable add (LetterGrade varchar(1));
+alter table StudentTable add (LetterGrade varchar(2));
 
 set serveroutput on
 declare
