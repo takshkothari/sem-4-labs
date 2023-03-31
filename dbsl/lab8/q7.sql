@@ -2,7 +2,7 @@ set serveroutput on
 declare
     i numeric(1);
     g StudentTable.GPA%TYPE;
-    gr varchar(1);
+    gr varchar(2);
 begin
     i := 1;
     loop
