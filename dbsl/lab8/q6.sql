@@ -13,7 +13,6 @@ begin
         if g > mg then
             mg := g;
         end if;
-        i := i + 1;
     end loop;
     select RollNo into i from StudentTable where gpa = mg;
     dbms_output.put_line('student with max gpa is roll no. '|| i);
