@@ -1,10 +1,5 @@
 #include <LPC17xx.h>
 #include<stdio.h>
-#define FIRST_SEG 0xF87FFFFF
-#define SECOND_SEG 0xF8FFFFFF
-#define THIRD_SEG 0xF97FFFFF
-#define FOURTH_SEG 0xF9FFFFFF
-#define DISABLE_ALL 0xFA7FFFFF
 
 unsigned int dig1=0x00,dig2=0x00,dig3=0x00,dig4=0x00;
 unsigned int twenty_count=0x00,dig_count=0x00,temp1=0x00;
@@ -78,19 +73,19 @@ void display(void)
 {
 	if(dig_count==0x01) {
 		temp1=dig1;
-		LPC_GPIO1->FIOPIN=FIRST_SEG;
+		LPC_GPIO1->FIOPIN=0xF87FFFFF;
 	}
 	else if(dig_count==0x02) {
 		temp1=dig2;
-		LPC_GPIO1->FIOPIN=SECOND_SEG;
+		LPC_GPIO1->FIOPIN=0xF8FFFFFF;
 	}
 	else if(dig_count==0x03) {
 		temp1=dig3;
-		LPC_GPIO1->FIOPIN=THIRD_SEG;
+		LPC_GPIO1->FIOPIN=0xF97FFFFF;
 	}
 	else if(dig_count==0x04) {
 		temp1=dig4;
-		LPC_GPIO1->FIOPIN=FOURTH_SEG;
+		LPC_GPIO1->FIOPIN=0xF9FFFFFF;
 	}
 	
 	temp1 &= 0x0f;
@@ -101,7 +96,7 @@ void display(void)
 	for(i=0;i<500;i++);
 	
 	LPC_GPIO0->FIOCLR = 0xff0;
-	LPC_GPIO1->FIOPIN = DISABLE_ALL;
+	LPC_GPIO1->FIOPIN = 0xFA7FFFFF;
 }
 
 void delay(void)
@@ -111,7 +106,6 @@ void delay(void)
 	if(twenty_count==1000) {
 		one_s_f=0xff;
 		twenty_count=0x00;
-	}
-	else
+	} else
 		twenty_count += 1;
 }
