@@ -6,7 +6,7 @@ void display(void);
 unsigned char dec[10]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 unsigned int dig_count = 0;
 unsigned int dig_value[4] = {1,2,3,4};
-unsigned int dig_select[4] = {0<<23, 1<<23, 2<<23, 3<<23};
+unsigned int dig_select[4] = {3<<23, 2<<23, 1<<23, 0<<23};
 
 int main(void)
 {
