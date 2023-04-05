@@ -23,10 +23,10 @@ int main(void)
 	
 	LPC_PINCON->PINSEL0 &=0xFF0000FF;
 	LPC_PINCON->PINSEL3 &=0xFFC03FFF;
-	LPC_PINCON->PINSEL4 &=0XFCFFFFFF;
+	LPC_PINCON->PINSEL5 &=0XFCFFFFFF;
 	LPC_GPIO0->FIODIR |=0x00000FF0;
 	LPC_GPIO1->FIODIR |=15<<23;
-	LPC_PINCON->PINSEL4 &=0XFFFFFFFD;
+	LPC_PINCON->PINSEL5 &=0XFFFFFFFD;
 	while(1) {
 		if(LPC_GPIO2->FIOPIN &0x01)
 			upc();
@@ -144,5 +144,5 @@ void display(void)
 void delay(void)
 {
 	unsigned int i;
-	for(i=0;i<5000;i++);
+	for(i=0;i<500;i++);
 }
