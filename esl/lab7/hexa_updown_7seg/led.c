@@ -81,7 +81,7 @@ void downc(void)
 		digcount+=1;
 		if(digcount==0x05) {
 			digcount=0x01;
-			for( j=0;j<500;j++) {
+			for(j=0;j<500;j++) {
 				display();
 				if(digcount==0x05)
 					digcount=0x01;
@@ -94,13 +94,13 @@ void downc(void)
 		if(onesecflag==0xFF) {
 			onesecflag=0x00;
 			if(dig1==0x00) {
-				dig1=9;
+				dig1=0xF;
 				if(dig2==0x00) {
-					dig2=9;
+					dig2=0xF;
 					if(dig3==0x00) {
-						dig3=9;
+						dig3=0xF;
 						if(dig4==0x00)
-							dig4=9;
+							dig4=0xF;
 						else 
 							dig4-=1;
 					}
@@ -144,5 +144,5 @@ void display(void)
 void delay(void)
 {
 	unsigned int i;
-	for(i=0;i<500;i++);
+	for(i=0;i<5000;i++);
 }
