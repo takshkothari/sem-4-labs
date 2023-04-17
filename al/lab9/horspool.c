@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX 500
 
-int t[MAX];
+int t[100];
 
 void shifttable(char p[]){
     int i, j, m;
     m = strlen(p);
-    for(i = 0 ; i < MAX ; i++)
+    for(i = 0 ; i < 100 ; i++)
         t[i] = m;
     for(j = 0 ; j < m-1 ; j++)
         t[p[j]] = m - 1 - j;
