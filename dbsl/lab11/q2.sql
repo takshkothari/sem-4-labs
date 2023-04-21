@@ -5,8 +5,6 @@ create table Old_Data_Instructor(
     salary numeric(8,2),
     primary key (ID));
 
-set serveroutput on
-
 create or replace trigger inst_sal
 before update of salary on instructor
 begin

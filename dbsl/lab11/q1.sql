@@ -8,8 +8,6 @@ create table log_change_Takes(
     grade varchar(2),
     primary key (ID, course_id, sec_id, semester, year));
 
-set serveroutput on
-
 create or replace trigger alt_takes_trigger
 before insert or update or delete on takes
 begin
