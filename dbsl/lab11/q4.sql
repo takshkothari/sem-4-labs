@@ -15,6 +15,7 @@ create table auditclient (
 
 create or replace trigger client_trigger
 before update or delete on Client_master
+for each row
 begin
     case
     when updating then
