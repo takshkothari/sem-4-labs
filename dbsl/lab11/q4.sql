@@ -19,9 +19,9 @@ for each row
 begin
     case
     when updating then
-        insert into auditClient values(:OLD.client_no, :OLD.name, :OLD.bal_due, 'Update', 1440, sysdate);
+        insert into auditClient values(:OLD.client_no, :OLD.name, :OLD.bal_due, 'Update', 6969, sysdate);
     when deleting then
-        insert into auditClient values(:OLD.client_no, :OLD.name, :OLD.bal_due, 'Delete', 1440, sysdate);
+        insert into auditClient values(:OLD.client_no, :OLD.name, :OLD.bal_due, 'Delete', 6969, sysdate);
     end case;
 end;
 /
