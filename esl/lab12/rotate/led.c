@@ -17,9 +17,9 @@ int main(void) {
 	
 	while(1) {
 		if(LPC_GPIO2->FIOPIN & 1<<12)
-			clock_wise();
+			anti_clock_wise();
 		else 
-			anti_clock_wise();		
+			clock_wise();		
 	}
 }
 void clock_wise(void) {
